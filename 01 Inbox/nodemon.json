@@ -1,0 +1,6 @@
+{
+    "env": {
+        "INFURA_API": "https://rinkeby.infura.io/v3/ef74396e201d4321a5e51007162699e9",
+        "MNEMONIC": "art void coffee frown review camera copper cycle common narrow embody favorite"
+    }
+}
