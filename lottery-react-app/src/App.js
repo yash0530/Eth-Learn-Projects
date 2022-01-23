@@ -12,7 +12,7 @@ class App extends Component {
 		value: '',
 		message: ''
 	};
-	
+
 	async componentDidMount() {
 		const manager = await lottery.methods.manager().call();
 		const players = await lottery.methods.getPlayers().call();
@@ -21,6 +21,9 @@ class App extends Component {
 		this.setState({ manager, players, balance });
 	}
 
+	// when we use arrow function for class methods
+	// the value of this is the instance of the class
+	// which is normal expected behaviour for any oop lang
 	onSubmit = async event => {
 		event.preventDefault();
 
@@ -33,6 +36,8 @@ class App extends Component {
 		});
 		this.setState({ message: 'You have entered!!' });
 
+		// explicitly calling life cycle method to update state
+		// this method is called by default when the component renders 
 		this.componentDidMount();
 	}
 
@@ -59,11 +64,10 @@ class App extends Component {
 				<form onSubmit={this.onSubmit}>
 					<div>
 						<h4>Want to try your luck?</h4>
-						<p>Minimum of 0.1 ethers is required to enter</p>
+						<p>Minimum of 0.01 ethers is required to enter</p>
 						Amount of ether to enter <input
 							value={this.state.value}
-							onChange={event => this.setState({ value: event.target.value })}
-						/>
+							onChange={event => this.setState({ value: event.target.value })} />
 					</div>
 					<button>Enter</button>
 				</form>
@@ -81,3 +85,12 @@ class App extends Component {
 };
 
 export default App;
+
+/** 
+ * Get info from contract and render on screen steps
+ * 
+ * 1. Component renders
+ * 2. componentDidMount is called; It is lifecycle method called when component is rendered
+ * 3. 'Call' methods on contract
+ * 4. set data on state
+ */
