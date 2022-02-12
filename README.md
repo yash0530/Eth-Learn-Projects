@@ -15,8 +15,9 @@
 ### 03 KickStarter
 
 - KickStarter using Web3
+- Contract using solidity
 - Next.js for Frontend
-  - all the pages live in pages folder
+  - All the pages live in pages folder
   - Next creates the entire app in background in .next folder
 
 ### 04 React YT App
