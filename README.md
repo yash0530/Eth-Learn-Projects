@@ -6,7 +6,11 @@
 
 ### 02 Lottery
 
-- Basic react app + solidity contract
+- Solidity contract
+
+### 02.1 Lottery React App
+
+- React App using Lottery contract
 
 ### 03 KickStarter
 
@@ -14,3 +18,11 @@
 - Next.js for Frontend
   - all the pages live in pages folder
   - Next creates the entire app in background in .next folder
+
+### 04 React YT App
+
+- Basic youtube clone using react (react learning project)
+
+### 05 Diagram
+
+- Some useful diagram for understanding browser / ethereum interaction
