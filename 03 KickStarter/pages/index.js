@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import campaignFactory from '../ethereum/factory';
-import { Card, Button } from 'semantic-ui-react';
-import Layout from '../components/layout';
+import { Card, Button, Table } from 'semantic-ui-react';
+import Layout from '../components/Layout';
 import { Link } from '../routes';
 
 class CampaignIndex extends Component {
@@ -12,13 +12,30 @@ class CampaignIndex extends Component {
     }
 
     renderCampaigns() {
-        const items = this.props.campaigns.map(address => {
+        const items = this.props.campaigns.map(campaign => {
             return {
-                header: address,
+                header: campaign[2],
                 description: (
-                    <Link route={`/campaigns/${address}`}>
-                        <a>View Campaign</a>
-                    </Link>
+                    <Table striped>
+                        <Table.Body>
+                            <Table.Row>
+                                <Table.Cell>Manager</Table.Cell>
+                                <Table.Cell>{ campaign[1] }</Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell>Minimum Contribution</Table.Cell>
+                                <Table.Cell>{ campaign[3] } Wei</Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell>
+                                    <Link route={`/campaigns/${campaign[0]}`}>
+                                        View Campaign
+                                    </Link>
+                                </Table.Cell>
+                                <Table.Cell></Table.Cell>
+                            </Table.Row>
+                        </Table.Body>
+                    </Table>
                 ),
                 fluid: true
             }
@@ -33,7 +50,7 @@ class CampaignIndex extends Component {
                     <Button floated="right" content='Create Campaign' icon='plus' labelPosition='left' primary />
                 </Link>
                 <div>
-                    <h3>Open Campaigns</h3>
+                    <h1>Open Campaigns</h1>
                     {this.renderCampaigns()}
                 </div>
             </Layout>

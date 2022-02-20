@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './header';
+import Header from './Header';
 import { Container } from 'semantic-ui-react';
 import Head from 'next/head';
 

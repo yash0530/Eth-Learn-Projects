@@ -3,5 +3,5 @@ import campaignFactory from './build/CampaignFactory.json';
 
 export default new web3.eth.Contract(
     campaignFactory.abi,
-    '0x457C198070CB25d01F9624b1d3fad7b67B3e354B'
+    '0x453606d2DD392Abf6b92EA4a88ED1aCcC1B7A281'
 );
