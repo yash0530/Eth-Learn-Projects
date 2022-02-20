@@ -25,21 +25,23 @@ class CampaignShow extends Component {
     renderCards = () => {
         return (
             <div>
-                <Table celled style={{ margin: '5px 10px 5px 0px' }}>
-                    <Table.Header>
-                        <Table.Row>
-                            <Table.HeaderCell><h4>{this.props.manager}</h4></Table.HeaderCell>
-                        </Table.Row>
-                    </Table.Header>
-                    <Table.Body>
-                        <Table.Row>
-                            <Table.Cell>Address of Manager</Table.Cell>
-                        </Table.Row>
-                        <Table.Row>
-                            <Table.Cell>The manager created this campaign and can create requests for this campaign</Table.Cell>
-                        </Table.Row>
-                    </Table.Body>
-                </Table>
+                <div style={{ display: 'flex' }}>
+                    <Table celled style={{ margin: '5px 10px 5px 0px' }}>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell><h4>{this.props.manager}</h4></Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
+                        <Table.Body>
+                            <Table.Row>
+                                <Table.Cell>Address of Manager</Table.Cell>
+                            </Table.Row>
+                            <Table.Row>
+                                <Table.Cell>The manager created this campaign and can create requests for this campaign</Table.Cell>
+                            </Table.Row>
+                        </Table.Body>
+                    </Table>
+                </div>
                 <div style={{ display: 'flex' }}>
                     <Table celled style={{ margin: '5px 10px 5px 0px' }}>
                         <Table.Header>
