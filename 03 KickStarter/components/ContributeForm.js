@@ -67,7 +67,7 @@ class ContributeForm extends Component {
                 <Button
                     loading={this.state.loading}
                     disabled={this.state.loading}
-                    primary>
+                    color='violet'>
                     Contribute!
                 </Button>
             </Form>

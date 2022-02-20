@@ -35,8 +35,18 @@ class CampaignNew extends Component {
     render() {
         return (
             <Layout>
-                <h2>Create a new Campaign</h2>
-                <Form onSubmit={this.onSubmit} error={!!this.state.error} success={!!this.state.message}>
+                <h2>Create New Campaign</h2>
+                <Form
+                    style={{
+                        maxWidth: '600px',
+                        margin: '10px 0px',
+                        padding: '10px',
+                        border: '1px solid #ddd',
+                        borderRadius: '5px'
+                    }}
+                    onSubmit={this.onSubmit}
+                    error={!!this.state.error}
+                    success={!!this.state.message}>
                     <Message error style={{ maxWidth: '600px' }}>
                         <Message.Content>{ this.state.error }</Message.Content>
                     </Message>
@@ -59,7 +69,7 @@ class CampaignNew extends Component {
                             value={ this.state.minimumContribution }
                             onChange={ event => this.setState({ minimumContribution: event.target.value }) }/>
                     </Form.Field>
-                    <Button
+                    <Button color='violet'
                         loading={this.state.loading}
                         disabled={this.state.loading}
                         type='submit'>
