@@ -1,18 +1,22 @@
 import React from 'react';
 import { Menu, Button, Container } from 'semantic-ui-react';
+import { Link } from '../routes';
 
 export default () => {
     return (
         <Menu>
-        <Container>
-            <Menu.Item name='KickStarter' active={ true } />
-            <Menu.Menu position='right'>
-                <Menu.Item name='Campaigns' />
-                <Menu.Item>
-                    <Button content='Create Campaigns' icon='plus' labelPosition='left' />
-                </Menu.Item>
-            </Menu.Menu>
-        </Container>
+            <Container>
+                <Link route="/">
+                    <a className='item active'>KickStarter</a>
+                </Link>
+                <Menu.Menu position='right'>
+                    <Link route="/campaigns/new">
+                        <a className='item'>
+                            <Button content='Create Campaigns' icon='plus' labelPosition='left' />
+                        </a>
+                    </Link>
+                </Menu.Menu>
+            </Container>
       </Menu>
     );
 }
