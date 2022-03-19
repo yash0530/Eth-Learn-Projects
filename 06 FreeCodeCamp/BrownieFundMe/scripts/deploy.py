@@ -22,7 +22,9 @@ def deploy_fund_me():
         {"from": account},
         publish_source=config["networks"][network.show_active()].get("verify"),
     )
+
     print(f"Contract deployed to {fund_me.address}")
+    return fund_me
 
 
 def main():
