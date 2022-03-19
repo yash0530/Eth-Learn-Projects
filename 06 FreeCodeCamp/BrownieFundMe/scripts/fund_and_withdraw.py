@@ -6,10 +6,10 @@ def fund():
     fund_me = FundMe[-1]
     account = get_account()
     entrance_fee = fund_me.getEntranceFee()
-    print(f"Current entry fee us {entrance_fee}")
+    print(f"Current entry fee is {entrance_fee}")
 
     print("Funding")
-    fund_me.fund({"from": account, "value": entrance_fee})
+    fund_me.fund({"from": account, "value": entrance_fee * 1.0001})
 
 
 def withdraw():
