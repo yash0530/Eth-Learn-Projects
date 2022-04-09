@@ -4,16 +4,23 @@ from brownie import network, config, accounts, MockV3Aggregator
 DECIMALS = 8
 STARTING_PRICE = 2000_0000_0000  # $2000
 LOCAL_BLOCKCHAIN_ENVIRONMENTS = ["ganache-local", "development"]
+FORKED_LOCAL_ENVIROMENTS = ["mainnet-fork"]
 
 
 def get_account():
-    if network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
+    if (
+        network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS
+        or network.show_active() in FORKED_LOCAL_ENVIROMENTS
+    ):
         return accounts[0]
-    else:
-        return accounts.add(config["wallets"]["from_key"])
+    return accounts.add(config["wallets"]["from_key"])
 
 
-def deploy_mocks(account):
+def get_price_feed_address(account):
+    if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
+        return config["networks"][network.show_active()]["eth_usd_price_feed"]
+
     if len(MockV3Aggregator) <= 0:
         MockV3Aggregator.deploy(DECIMALS, STARTING_PRICE, {"from": account})
-        print(f"Mocks Deployed")
+        print("MockV3Aggregator Deployed")
+    return MockV3Aggregator[-1].address

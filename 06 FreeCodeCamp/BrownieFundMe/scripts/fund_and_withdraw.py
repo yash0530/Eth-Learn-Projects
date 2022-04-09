@@ -1,5 +1,6 @@
 from brownie import FundMe
 from scripts.helpful_scripts import get_account
+from scripts.deploy import deploy_fund_me
 
 
 def fund():
@@ -19,5 +20,6 @@ def withdraw():
 
 
 def main():
+    deploy_fund_me()
     fund()
     withdraw()
