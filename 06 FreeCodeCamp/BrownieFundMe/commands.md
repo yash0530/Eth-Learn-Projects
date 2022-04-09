@@ -20,7 +20,3 @@
 - brownie test
 - brownie test -k test_only_owner_can_withdraw
 - brownie test --network rinkeby
-
-## MainNet Forking
-
--
