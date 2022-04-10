@@ -6,20 +6,22 @@ from web3 import Web3
 
 
 def test_get_entrace_fee():
-    lottery = deploy_lottery()
+    account = get_account()
+    lottery = deploy_lottery(account)
     entrance_fee = lottery.getEntranceFee()
     assert entrance_fee == Web3.toWei(0.025, "ether")
 
 
 def test_cant_enter_unless_started():
-    lottery = deploy_lottery()
+    account = get_account()
+    lottery = deploy_lottery(account)
     with pytest.raises(exceptions.VirtualMachineError):
         lottery.enter({"from": get_account(), "value": lottery.getEntranceFee()})
 
 
 def test_can_start_and_enter_lottery():
-    lottery = deploy_lottery()
     account = get_account()
+    lottery = deploy_lottery(account)
 
     lottery.startLottery({"from": account})
     lottery.enter({"from": account, "value": lottery.getEntranceFee()})
@@ -28,8 +30,8 @@ def test_can_start_and_enter_lottery():
 
 
 def test_can_end_lottery():
-    lottery = deploy_lottery()
     account = get_account()
+    lottery = deploy_lottery(account)
 
     lottery.startLottery({"from": account})
     lottery.enter({"from": account, "value": lottery.getEntranceFee()})
@@ -42,8 +44,8 @@ def test_can_end_lottery():
 
 # can be considered as a integration test
 def test_can_pick_winner_correctly():
-    lottery = deploy_lottery()
     account = get_account()
+    lottery = deploy_lottery(account)
 
     lottery.startLottery({"from": account})
     lottery.enter({"from": account, "value": lottery.getEntranceFee()})
